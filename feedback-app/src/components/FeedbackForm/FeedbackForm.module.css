@@ -1,0 +1,205 @@
+.form {
+  background: var(--card-glass);
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--card-border);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--accent);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.submit {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.5);
+}
+
+.cancel {
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+/* Small screens (up to 480px) */
+@media (max-width: 480px) {
+  .form {
+    padding: 0.9rem 1rem;
+    border-radius: calc(var(--radius) * 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .label {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .error {
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+  }
+
+  .actions {
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .submit,
+  .cancel {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+}
+
+/* Medium screens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .form {
+    padding: 1rem 1.1rem;
+    border-radius: calc(var(--radius) * 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.22);
+  }
+
+  .label {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.95rem;
+  }
+
+  .error {
+    font-size: 0.8rem;
+    margin-top: 0.22rem;
+  }
+
+  .actions {
+    gap: 0.55rem;
+    margin-top: 0.7rem;
+  }
+
+  .submit,
+  .cancel {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.95rem;
+    border-radius: 7px;
+  }
+}
+/* === FIX: Proper dark glass styling for select dropdown === */
+.select {
+  appearance: none; /* Removes default system arrow style */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Add a custom dropdown arrow */
+.select::-ms-expand {
+  display: none; /* IE */
+}
+
+.select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+/* Dropdown list (options inside select) */
+.select option {
+  background: #1e293b; /* solid dark background for dropdown list */
+  color: #f9fafb; /* light readable text */
+}
+
+/* For Safari (WebKit) */
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .select option {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Add hover and focus color feedback for options (supported browsers only) */
+.select option:hover,
+.select option:focus {
+  background: rgba(59, 130, 246, 0.5);
+  color: #fff;
+}
